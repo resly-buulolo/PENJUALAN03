@@ -1,13 +1,15 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";          // Password default XAMPP
-$db   = "db_Kasir";  // Nama database
+$host = "Localhost"; // alamat server database (biasanya localhost)
+$user = "root"; // username untuk login ke database
+$password = ""; //password untuk login (biasanya kosong untuk localhost)
+$dbname = "db_kasir"; // nama database yang ingin diakses
 
-$conn = mysqli_connect($host, $user, $pass, $db);
+// membuat koneksi
+$conn = new mysqli($host, $user, $password, $dbname);
 
-// Cek koneksi
-if (!$conn) {
-    die("Koneksi database gagal: " . mysqli_connect_error());
+// mengecek koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_eror);
 }
+//echo "Koneksi berhasil";
 ?>
